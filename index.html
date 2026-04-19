@@ -7,21 +7,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
     <div class="container">
-      <div>
-        <input type="text" id="password" spellcheck="false" />
-      </div>
-      <div>
-        <span>
-          <img id="generate" class="icon icon-rotate" src="arrows-rotate-solid.svg" />
-        </span>
-        <span>
-          <img id="copy" class="icon icon-clipboard" src="clipboard-solid.svg" />
-        </span>
+      <input type="text" id="password" readonly spellcheck="false" autocomplete="off" />
+
+      <div class="actions">
+        <button id="generate" class="icon-btn" aria-label="Genereer wachtwoord">
+          <img src="arrows-rotate-solid.svg" class="icon" alt="" />
+        </button>
+        
+        <button id="copy" class="icon-btn" aria-label="Kopieer wachtwoord">
+          <img src="clipboard-solid.svg" class="icon" alt="" />
+        </button>
       </div>
     </div>
     <script src="script.js"></script>
     <script data-goatcounter="https://wachtwoordgenerator-luckyhands-nl.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-</body>
+  </body>
 </html>
