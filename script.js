@@ -3,10 +3,16 @@ const letters = "abcdefghijklmnopqrstuvwxyz";
 const digits = "0123456789";
 
 const getRandomInt = (max) => {
+  const maxUint32 = 0xFFFFFFFF;
+  const limit = maxUint32 - (maxUint32 % max);
+  
   const arr = new Uint32Array(1);
-  crypto.getRandomValues(arr);
+  do {
+    crypto.getRandomValues(arr);
+  } while (arr[0] >= limit);
+
   return arr[0] % max;
-}
+};
 
 const shuffle = (arr) => {
   for (let i = arr.length -1; i > 0; i--) {
