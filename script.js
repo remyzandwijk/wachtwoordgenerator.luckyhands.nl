@@ -1,5 +1,4 @@
 // Generate macOS Passwords style passwords
-
 const letters = "abcdefghijklmnopqrstuvwxyz";
 const digits = "0123456789";
 
@@ -43,14 +42,27 @@ window.addEventListener("load", () => {
   passwordTxt.value = generatePassword();
 });
 
+document.querySelectorAll(".icon-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.classList.add("flash");
+    setTimeout(() => {
+      btn.classList.remove("flash");
+    }, 150);
+  });
+});
+
 generateBtn.addEventListener("click", () => {
   passwordTxt.value = generatePassword();
+  passwordTxt.style.backgroundColor = '#e0e0e0';
+  setTimeout(() => {
+    passwordTxt.style.backgroundColor = 'white';
+  }, 200)
 });
 
 copyBtn.addEventListener("click", () => {
   navigator.clipboard.writeText(passwordTxt.value);
-  passwordTxt.style.backgroundColor = 'green';
+  passwordTxt.style.backgroundColor = '#d4edda';
   setTimeout(() => {
     passwordTxt.style.backgroundColor = 'white';
-  }, 300)
+  }, 200)
 });

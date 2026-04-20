@@ -25,7 +25,7 @@ input {
   text-align: center;
   background-color: white;
   letter-spacing: 0.1em;
-  transition: background-color 300ms ease, border-color 200ms ease;
+  transition: background-color 200ms ease;
 }
 
 input:focus {
@@ -39,10 +39,11 @@ input:focus {
 }
 
 .icon {
-  height: 45px;
-  width: 45px;
+  width: clamp(32px, 5vw, 40px);
+  height: clamp(32px, 5vw, 40px);
   display: block;
   pointer-events: none;
+  transition: transform 150ms ease, opacity 150ms ease;
 }
 
 .icon-btn {
@@ -50,17 +51,22 @@ input:focus {
   border: none;
   padding: 0;
   cursor: pointer;
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 150ms ease;
 }
 
-.icon-btn:hover {
-  opacity: 0.7;
+@media (hover: hover) {
+  .icon-btn:hover {
+    opacity: 0.6;
+  }
 }
 
-.icon-btn:active .icon {
-  transform: scale(0.5);
+.icon-btn.flash .icon {
+  opacity: 0.2;
+  transform: scale(0.85);
 }
